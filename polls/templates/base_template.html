@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %} {% endblock %}
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+</head>
+
+    {% include "header.html" %}
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+</html>
