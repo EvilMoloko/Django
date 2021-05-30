@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends "base_template.html" %}
 
-</head>
-<body>
-        <form action="{% url 'polls:create' %}" method="post">
+    {% block title %}  <title>Создание опроса</title> {% endblock %}
+
+    {% block content %}
+    <form action="{% url 'polls:create' %}" method="post">
         {%csrf_token %}
         {{ form }}
         <input type="submit" value="Принять">
         </form>
-</body>
-</html>
+    {% endblock %}

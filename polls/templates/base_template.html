@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html>
 <head>
-    <meta charset="UTF-8">
-    {% block title %} {% endblock %}
-
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'polls/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
-
+  <title>Django blog</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+  <link href="{% static 'css/base.css' %}" rel="stylesheet">
 </head>
+  <body>
+    <header>
+      <h1><a href="{% url 'home' %}">Django blog</a></h1>
 
-    {% include "header.html" %}
-    {% block content %}
-
-    {% endblock %}
-
-</body>
+    </header>
+    <div>
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </body>
 </html>
