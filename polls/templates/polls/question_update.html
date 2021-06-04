@@ -1,0 +1,14 @@
+{% extends "polls/base_template.html" %}
+
+    {% block title %}  <title>Обновление вопроса</title> {% endblock %}
+
+    {% block content %}
+        <h1><p align="center" style="color:#C71585" class="p-3">Question update<br></p></h1>
+       <h5 class="px-5" style="color:#C71585"> <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.question_text }}<br>
+        {{ form.publication_date }}<br><br>
+        <span>{{ error }}</span>
+        <button class="btn btn-primary btn-sm btn-dark" onclick="document.location='../'" type="submit">Изменить опрос</button>
+       </form></h5>
+    {% endblock %}

@@ -1,0 +1,14 @@
+{% extends "polls/base_template.html" %}
+
+{% block title %}Удаление варианта{% endblock %}
+{% block content %}
+
+    <h1><p align="center" style="color:#C71585" class="p-3">Choice delete<br>
+    </h1>
+    <h5 class="px-5" style="color:#C71585"><form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>Вы действительно хотите удалить "{{ choice.choice_text }}"?</p>
+        <button class="btn btn-primary btn-sm btn-dark"  type="submit">Delete</button>
+    </form></h5>
+
+{% endblock %}

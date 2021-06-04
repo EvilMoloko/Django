@@ -1,9 +1,10 @@
-{% extends 'base_template.html' %}
- 
+{% extends "polls/base_template.html" %}
+ {% block title %}  <title>Создание вопроса</title> {% endblock %}
+
 {% block content %}
-    <h1>New question</h1>
-    <form action="" method="post">{% csrf_token %}
+    <h1><p align="center" style="color:#C71585" class="p-3">New question<br></p></h1>
+    <h5 class="px-5" style="color:#C71585"><form action="" method="post">{% csrf_token %}
       {{ form.as_p }}
-      <input type="submit" value="Сохранить" />
-    </form>
+      <input class="btn btn-primary btn-sm btn-dark" type="submit" value="Сохранить" />
+    </form></h5>
 {% endblock content %}

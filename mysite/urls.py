@@ -9,9 +9,10 @@ def index(req):
 
 
 urlpatterns = [
+    path('', include('main.urls'), name='home'),
     path('admin/', admin.site.urls),
-    path('polls/', include('polls.urls')),
-    path('blog/', include('blog.urls')),
+    path('polls/', include('polls.urls'), name='polls'),
+    path('blog/', include('blog.urls'), name='blog'),
 
     ]
 

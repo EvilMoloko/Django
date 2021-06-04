@@ -1,11 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'polls/base_template.html' %}
  
 {% block content %}
-  <div class="post-entry">
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.body }}</p>
-  </div>
 
-  <p><a href="{% url 'post_edit' post.pk %}">+ Изменить пост</a></p>
-  <p><a href="{% url 'post_delete' post.pk %}">+ Удалить пост</a></p>
+  <h1><p align="center" style="color:#C71585" class="p-3">
+    {{ post.title }}</h1>
+<div align="center">
+ <p><a class="btn btn-primary btn-dark" href="{% url 'post_edit' post.pk %}">Update post</a>
+  <a class="btn btn-primary btn-dark" href="{% url 'post_delete' post.pk %}">Delete post</a></p>
+</div>
+    <p align="center"  class="p-3 list-group-item">{{ post.body }}</p>
+  <p align="center"  class="p-3"><img src="https://www.fresher.ru/wp-content/uploads/2018/03/1.jpg"></p>
+  <p><a class="btn btn-primary btn-dark" href="/blog">Back to blogs</a></p>
+
 {% endblock content %}

@@ -1,10 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'polls/base_template.html' %}
 
 {% block content %}
+<h1 align="center" style="color:#C71585" class="p-3">Blogs</h1>
+<div align="center">
+          <a class="btn btn-primary btn-dark" href="{% url 'post_new' %}">New Blog Post</a>
+        </div>
+<ul class="list-group-flush">
   {% for post in object_list %}
-  <div class="post-entry">
-    <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+
+    <li class="list-group-item"><h3><a style="color:#C71585" href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3></li>
     <p>{{ post.body }}</p>
-  </div>
+
   {% endfor %}
+</ul>
 {% endblock content %}
+

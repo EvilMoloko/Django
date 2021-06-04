@@ -1,10 +1,13 @@
-{% extends "base_template.html" %}
+{% extends "polls/base_template.html" %}
 
-  {% block title %}<title>Сделайте выбор</title> {% endblock %}
+{% block title %}Создание варианта{% endblock %}
+{% block content %}
 
-    {% block content %}
-    <form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Создать">
-    </form>
-    {% endblock %}
+    <h1><p align="center" style="color:#C71585" class="p-3">Choice create</h1>
+    <h5 class="px-5" style="color:#C71585"><form method="post" value="create">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input class="btn btn-primary btn-sm btn-dark" type = "submit" value="Create">
+    </form></h5>
+
+{% endblock %}

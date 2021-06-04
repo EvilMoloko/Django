@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django.views.generic import UpdateView, CreateView, DeleteView
-from polls.forms import CreateForm
+from polls.forms import CreateForm, CreateChoice
 
 from .models import Question, Choice
 
@@ -35,19 +35,20 @@ class ResultsView(generic.DetailView):
 
 class QuestionCreateView(CreateView):
     model = Question
-    template_name = 'question_new.html'
+    template_name = 'polls/question_new.html'
     fields = ['question_text', 'publication_date']
 
 
 class QuestionUpdateView(UpdateView):
     model = Question
-    fields = ['question_text']
-    template_name = 'question_update_form.html'
+    template_name = 'polls/question_update.html'
+    form_class = CreateForm
+
 
 
 class QuestionDeleteView(DeleteView):
     model = Question
-    template_name = 'question_delete.html'
+    template_name = 'polls/question_delete.html'
     success_url = reverse_lazy('index')
 
 
@@ -57,10 +58,27 @@ class ChoiceUpdateView(UpdateView):
     template_name = 'polls/choice_update_form.html'
 
 
-class ChoiceCreateView(CreateView):
+def ChoiceCreateView(request):
+    error =''
+    if request.method == 'POST':
+        form = CreateChoice(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('polls:success_saved'))
+        else:
+            error = 'Wrong form filling'
+    form = CreateChoice()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'polls/choice_create_form.html', data)
+
+
+class ChoiceDeleteView(DeleteView):
     model = Choice
-    fields = ['question', 'choice_text']
-    template_name = 'polls/choice_create_form.html'
+    success_url = '/polls/'
+    template_name = 'polls/choice_delete_form.html'
 
 
 def vote(request, question_id):

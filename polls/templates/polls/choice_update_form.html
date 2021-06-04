@@ -1,10 +1,11 @@
-{% extends "base_template.html" %}
+{% extends "polls/base_template.html" %}
 
-    {% block title %}  <title>Обновление выбора</title> {% endblock %}
+    {% block title %}  <title>Обновление варианта</title> {% endblock %}
 
     {% block content %}
-    <form method="post">{% csrf_token %}
+<h1> <p align="center" style="color:#C71585" class="p-3">Choice update<br></p></h1>
+    <h5 class="px-5" style="color:#C71585"><form method="post">{% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Обновить">
-    </form>
+    <input class="btn btn-primary btn-sm btn-dark" type="submit" value="Update">
+    </form></h5>
     {% endblock %}
