@@ -3,23 +3,23 @@
 {% block content %}
 
 
+<h3 style="color:#C71585" align="center">
+    Main page
+</h3>
+<h2 align="center">
+    Welcome to Django Blog
+</h2>
+<p align="center"><img
+        src="https://st.depositphotos.com/1620075/3629/i/600/depositphotos_36290441-stock-photo-blog.jpg"></p>
 
-        <h3 style="color:#C71585" align="center">
-            Main page
-        </h3>
-        <h2 align="center">
-            Welcome to Django Blog
-        </h2>
-        <p align="center"><img src="https://st.depositphotos.com/1620075/3629/i/600/depositphotos_36290441-stock-photo-blog.jpg" ></p>
+<h5 align="center">Select a section:</h5>
+<h2 align="center">
+    <div class="d-grid gap-2 col-4 mx-auto">
+        <button class="btn btn-primary btn-lg btn-dark" onclick="document.location='polls'" type="button">Polls</button>
+        <button class="btn btn-primary btn-lg btn-dark" onclick="document.location='blog'" type="button">Blogs</button>
+    </div>
 
-        <h5 align="center">Select a section:</h5>
-        <h2 align="center">
-            <div class="d-grid gap-2 col-4 mx-auto">
-                <button class="btn btn-primary btn-lg btn-dark" onclick="document.location='polls'" type="button">Polls</button>
-                <button class="btn btn-primary btn-lg btn-dark" onclick="document.location='blog'"  type="button">Blogs</button>
-            </div>
-
-        </h2>
+</h2>
 
 
 {% endblock %}

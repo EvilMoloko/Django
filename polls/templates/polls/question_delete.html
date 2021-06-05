@@ -1,10 +1,12 @@
 {% extends "polls/base_template.html" %}
- {% block title %}  <title>Удаление вопроса</title> {% endblock %}
+{% block title %}  <title>Удаление вопроса</title> {% endblock %}
 
 {% block content %}
-    <h1><p align="center" style="color:#C71585" class="p-3">Delete question<br></p></h1>
-    <h5 class="px-5" style="color:#C71585"><form action="" method="post">{% csrf_token %}
-      <p>Вы действительно хотите удалить "{{ question.question_text }}"?</p>
-      <input class="btn btn-primary btn-sm btn-dark" type="submit" value="Принять" />
-    </form></h5>
+<h1><p align="center" style="color:#C71585" class="p-3">Delete question<br></p></h1>
+<h5 class="px-5" style="color:#C71585">
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <p>Вы действительно хотите удалить "{{ question.question_text }}"?</p>
+        <button class="btn btn-primary btn-sm btn-dark" type="submit">Delete</button>
+    </form>
+</h5>
 {% endblock content %}

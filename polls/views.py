@@ -49,7 +49,7 @@ class QuestionUpdateView(UpdateView):
 class QuestionDeleteView(DeleteView):
     model = Question
     template_name = 'polls/question_delete.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('polls:index')
 
 
 class ChoiceUpdateView(UpdateView):
@@ -87,9 +87,9 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # redisplay the question voting form
-        return render(request, 'polls/detail.html',{
+        return render(request, 'polls/detail.html', {
             'question': question,
-            'error_message': "Вы не сделали выбор."
+            'error_message': "You didn't select a choice"
         })
     else:
         selected_choice.votes += 1
@@ -115,4 +115,4 @@ def create(request):
 
 
 def success_saved(request):
-    return render('success_saved.html')
+    return render(request, 'polls/success_saved.html')

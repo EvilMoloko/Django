@@ -1,15 +1,16 @@
 {% extends "polls/base_template.html" %}
 
-    {% block title %}  <title>Результаты опроса</title> {% endblock %}
+{% block title %}  <title>Результаты опроса</title> {% endblock %}
 
-    {% block content %}
-    <h1><p align="center" style="color:#C71585" class="p-3">{{ question.question_text }}<br></p></h1>
+{% block content %}
+<h1><p align="center" style="color:#C71585" class="p-3">{{ question.question_text }}<br></p></h1>
 
-    <h5 class="px-5" style="color:#C71585"><ul >
-    {% for choice in question.choice_set.all %}
+<h5 class="px-5" style="color:#C71585">
+    <ul>
+        {% for choice in question.choice_set.all %}
         <li>{{ choice.choice_text }} -- {{choice.votes}} vote{{ choice.votes|pluralize}}</li>
-    {% endfor %}
+        {% endfor %}
     </ul>
     <a class="btn btn-primary btn-sm btn-dark" href="{% url 'polls:detail' question.id %}"> Vote again?</a>
-        <a class="btn btn-primary btn-sm btn-dark" href="{% url 'polls:index' question.id %}"> Back to polls</a></h5>
-    {% endblock %}
+    <a class="btn btn-primary btn-sm btn-dark" href="{% url 'polls:index' question.id %}"> Back to polls</a></h5>
+{% endblock %}

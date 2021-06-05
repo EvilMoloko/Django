@@ -1,13 +1,13 @@
 {% extends "polls/base_template.html" %}
 
-    {% block title %}  <title>Вопросы</title> {% endblock %}
+{% block title %}  <title>Вопросы</title> {% endblock %}
 
-    {% block content %}
- <h1>
-     <p align="center" style="color:#C71585" class="p-3">
-     Polls</h1>
+{% block content %}
+<h1>
+    <p align="center" style="color:#C71585" class="p-3">
+        Polls</h1>
 
-<div align="center" >
+<div align="center">
 
     <a class="btn btn-primary btn-dark" href="{% url 'polls:question_new' %}">New Poll</a>
     <a class="btn btn-primary btn-dark" href="{% url 'polls:create_choice' %}">New choice</a>
@@ -15,14 +15,15 @@
 </div>
 {% if latest_question_list %}
 
-    <ul class="list-group-flush">
+<ul class="list-group-flush">
     {% for question in latest_question_list %}
-        <p align="center" style="color:#C71585">
+    <p align="center" style="color:#C71585">
 
-        <li class="list-group-item"><h3> <a style="color:#C71585" href = "{% url 'polls:detail' question.id %}">{{ question.question_text}}</a></li></h3>
+        <li class="list-group-item">
+    <h3><a style="color:#C71585" href="{% url 'polls:detail' question.id %}">{{ question.question_text}}</a></li></h3>
     {% endfor %}
-    </ul>
+</ul>
 {% else %}
-    <p align="center" style="color:#C71585"> Нет доступных опросов</p>
+<p align="center" style="color:#C71585"> Нет доступных опросов</p>
 {% endif %}
-    {% endblock content %}
+{% endblock content %}

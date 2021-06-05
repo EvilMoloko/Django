@@ -1,41 +1,45 @@
 {% load static %}
 <html>
-  <head>
-  <!-- Кодировка веб-страницы -->
-  <meta charset="utf-8">
-  <!-- Настройка viewport -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Django blog</title>
+<head>
+    <!-- Кодировка веб-страницы -->
+    <meta charset="utf-8">
+    <!-- Настройка viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django blog</title>
 
-  <!-- Bootstrap CSS (jsDelivr CDN) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <!-- Bootstrap CSS (jsDelivr CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 
     <!-- Bootstrap Bundle JS (jsDelivr CDN) -->
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+            crossorigin="anonymous"></script>
 </head>
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark px-5">
-  <div class="container-fluid">
-    <h1><a style="color:#C71585" class="nav-link active" aria-current="page" href="/ " ">Django Blog</a></h1>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a style="color:#C71585" class="nav-link active" aria-current="page" href="/blog">Blogs</a>
-        </li>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark px-5">
+    <div class="container-fluid">
+        <h1><a style="color:#C71585" class="nav-link active" aria-current="page" href="/ " ">Django Blog</a></h1>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a style="color:#C71585" class="nav-link active" aria-current="page" href="/blog">Blogs</a>
+                </li>
 
-        <li class="nav-item">
-          <a style="color:#C71585" class="nav-link active" href="/polls">Polls</a>
-        </li>
-       </form>
+                <li class="nav-item">
+                    <a style="color:#C71585" class="nav-link active" href="/polls">Polls</a>
+                </li>
+                </form>
+        </div>
     </div>
-  </div>
 </nav>
 <body>
-      {% block content %}
+{% block content %}
 
-      {% endblock content %}
-    </div>
-  </body>
+{% endblock content %}
+</div>
+</body>
 </html>

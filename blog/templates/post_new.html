@@ -1,9 +1,11 @@
 {% extends 'polls/base_template.html' %}
- 
+
 {% block content %}
-   <h1 align="center" style="color:#C71585" class="p-3">New post</h1>
-    <h5 class="px-5" style="color:#C71585"><form action="" method="post">{% csrf_token %}
-      {{ form.as_p }}
-      <input class="btn btn-primary btn-dark" type="submit" value="Create" />
-    </form></h5>
+<h1 align="center" style="color:#C71585" class="p-3">New post</h1>
+<h5 class="px-5" style="color:#C71585">
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary btn-dark" type="submit" value="Create"/>
+    </form>
+</h5>
 {% endblock content %}

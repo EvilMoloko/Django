@@ -1,7 +1,10 @@
 {% extends "polls/base_template.html" %}
 
-    {% block title %}  <title>Сохранение опроса</title> {% endblock %}
+{% block title %}  <title>Сохранение опроса</title> {% endblock %}
 
-    {% block content %}
-    <h1><p align="center" style="color:#C71585" class="p-3">Сохранено<br></p></h1>
-    {% endblock %}
+{% block content %}
+<h1><p align="center" style="color:#C71585" class="p-3">Сохранено<br></p></h1>
+<h3 align="center">
+    <button class="btn btn-primary btn-dark" onclick="document.location='../../polls/'"> To question</button>
+</h3>
+{% endblock %}

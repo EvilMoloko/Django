@@ -1,27 +1,35 @@
 {% extends "polls/base_template.html" %}
 
-    {% block title %}  <title>Детали опроса</title> {% endblock %}
+{% block title %}  <title>Детали опроса</title> {% endblock %}
 
-    {% block content %}
+{% block content %}
 
-     <h1>
-         <p align="center" style="color:#C71585" class="p-3">{{ question.question_text }}</h1>
-   {% if error_message %} <p><strong>{{ error_message }}</strong></p>{% endif %}
+<h1>
+    <p align="center" style="color:#C71585" class="p-3">{{ question.question_text }}</h1>
+{% if error_message %} <p><strong>{{ error_message }}</strong></p>{% endif %}
 
-   <h5 class="px-5" style="color:#C71585"><form class="px-5" action="{% url 'polls:vote' question.id %}" method="post">
-       <p align="center"><a class="btn btn-primary btn-dark" onclick="document.location='../../polls/{{ question.id }}/question_update'">Update question</a>
-       <a class="btn btn-primary btn-dark " onclick="document.location='../../polls/{{ question.id }}/question_delete'">Delete question</a></p>
-   {% csrf_token %}
-   {% for choice in question.choice_set.all %}
+<h5 class="px-5" style="color:#C71585">
+    <form class="px-5" action="{% url 'polls:vote' question.id %}" method="post">
+        <p align="center"><a class="btn btn-primary btn-dark"
+                             onclick="document.location='../../polls/{{ question.id }}/question_update'">Update
+            question</a>
+            <a class="btn btn-primary btn-dark "
+               onclick="document.location='../../polls/{{ question.id }}/question_delete'">Delete question</a></p>
+        {% csrf_token %}
+        {% for choice in question.choice_set.all %}
 
-       <h5 class="list-group-item"><input  type="radio"  name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-       <label  for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label > <i class="px-3"></i>
+        <h5 class="list-group-item"><input type="radio" name="choice" id="choice{{ forloop.counter }}"
+                                           value="{{ choice.id }}">
+            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label> <i class="px-3"></i>
 
-      <a class="btn btn-primary btn-sm btn-dark " onclick="document.location='../../polls/{{ choice.id }}/update_choice'">Update choice</a>
-       <a class="btn btn-primary btn-sm btn-dark" onclick="document.location='../../polls/{{ choice.id }}/delete_choice'">Delete choice</a></p>    </h5>
-   {% endfor %}
-   <input class="btn btn-primary btn-dark" type="submit" value="Проголосовать">
+            <a class="btn btn-primary btn-sm btn-dark "
+               onclick="document.location='../../polls/{{ choice.id }}/update_choice'">Update choice</a>
+            <a class="btn btn-primary btn-sm btn-dark"
+               onclick="document.location='../../polls/{{ choice.id }}/delete_choice'">Delete choice</a></p>    </h5>
+        {% endfor %}
+        <input class="btn btn-primary btn-dark" type="submit" value="Vote">
 
-   </form></h5>
+    </form>
+</h5>
 
-    {% endblock %}
+{% endblock %}
