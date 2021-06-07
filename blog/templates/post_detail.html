@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 <h1><p align="center" style="color:#C71585" class="p-3">
     {{ post.title }}</h1>
 <div align="center">
@@ -9,7 +10,13 @@
         <a class="btn btn-primary btn-dark" href="{% url 'post_delete' post.pk %}">Delete post</a></p>
 </div>
 <p align="center" class="p-3 list-group-item">{{ post.body }}</p>
-<p align="center" class="p-3"><img src="https://www.fresher.ru/wp-content/uploads/2018/03/1.jpg"></p>
+
+
+    <p align="center"><img src="{{post.image.url}}"></p>
+
+   <p></p>
+
+
 <p><a class="btn btn-primary btn-dark" href="/blog">Back to blogs</a></p>
 
 {% endblock content %}
